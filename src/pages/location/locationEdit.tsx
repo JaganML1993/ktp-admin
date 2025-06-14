@@ -45,7 +45,7 @@ const EditLocation = () => {
           locationName: data.locationName,
           lat: String(data.lat),
           lng: String(data.lng),
-           itineraryTip: he.decode(data.itineraryTip || ''),
+          itineraryTip: he.decode(data.itineraryTip || ''),
           whatToPack: he.decode(data.whatToPack || ''),
           photogenicForecastContent: he.decode(data.photogenicForecastContent || ''),
           bestTimeToVisit: he.decode(data.bestTimeToVisit || ''),
