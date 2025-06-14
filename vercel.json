@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/jv-app(/.*)?", "destination": "/jv-app/index.html" }
+  ]
+}
