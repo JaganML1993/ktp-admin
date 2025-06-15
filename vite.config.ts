@@ -22,7 +22,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
   },
-  base: '/ktp-apdmin',
+  base: '/ktp_admin',
   build: {
     outDir: 'dist/ktp_admin', // This is crucial!
   },
