@@ -1,24 +1,5 @@
 {
-  "version": 2,
   "rewrites": [
-    {
-      "source": "/ktp-app/(.*)",
-      "destination": "/ktp-app/index.html"
-    },
-    {
-      "source": "/ktp-app",
-      "destination": "/ktp-app/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/ktp-app/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
+    { "source": "/ktp-app(/.*)?", "destination": "/ktp-app/index.html" }
   ]
 }
