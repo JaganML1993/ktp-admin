@@ -1,19 +1,24 @@
 {
   "version": 2,
   "rewrites": [
-    { 
-      "source": "/jv-app/(.*)", 
-      "destination": "/jv-app/index.html" 
+    {
+      "source": "/jv-app/(.*)",
+      "destination": "/jv-app/index.html"
     },
-    { 
-      "source": "/jv-app", 
-      "destination": "/jv-app/index.html" 
+    {
+      "source": "/jv-app",
+      "destination": "/jv-app/index.html"
     }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/jv-app/assets/(.*)",
-      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+      "source": "/jv-app/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
