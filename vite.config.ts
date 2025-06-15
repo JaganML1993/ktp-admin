@@ -24,6 +24,6 @@ export default defineConfig({
   },
   base: '/ktp_admin',
   build: {
-    outDir: 'dist/ktp_admin', // This is crucial!
+    outDir: 'dist/ktp-admin', // This is crucial!
   },
 });
