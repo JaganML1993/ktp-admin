@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/ktp_admin(/.*)?", "destination": "/ktp_admin/index.html" }
+    { "source": "/ktp_admin(/.*)?", "destination": "/index.html" }
   ]
 }
