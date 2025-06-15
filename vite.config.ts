@@ -22,7 +22,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
   },
-  base: '/jv-app/',
+  base: '/ktp-app/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,

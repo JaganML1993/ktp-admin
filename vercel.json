@@ -2,17 +2,17 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/jv-app/(.*)",
-      "destination": "/jv-app/index.html"
+      "source": "/ktp-app/(.*)",
+      "destination": "/ktp-app/index.html"
     },
     {
-      "source": "/jv-app",
-      "destination": "/jv-app/index.html"
+      "source": "/ktp-app",
+      "destination": "/ktp-app/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/jv-app/assets/(.*)",
+      "source": "/ktp-app/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

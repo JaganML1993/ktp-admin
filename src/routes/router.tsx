@@ -64,7 +64,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/jv-app',
+    basename: '/ktp-app',
   },
 );
 
