@@ -22,8 +22,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
   },
-  base: '/ktp_admin',
+  base: '/jv-app/',
   build: {
-    outDir: 'dist/ktp-admin', // This is crucial!
+    outDir: 'dist',
+    emptyOutDir: true,
   },
 });
