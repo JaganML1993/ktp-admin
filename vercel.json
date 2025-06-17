@@ -1,11 +1,8 @@
 {
-  "rewrites": [
-    { "source": "/ktp-app", "destination": "/ktp-app/index.html" },
-    { "source": "/ktp-app/(.*)", "destination": "/ktp-app/index.html" }
-  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "headers": [
     {
-      "source": "/ktp-app/assets/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
