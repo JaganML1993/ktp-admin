@@ -11,7 +11,9 @@ const defaultState = {
   itineraryTip: '',
   whatToPack: '',
   photogenicForecastContent: '',
+  photogenicForecastLink: '',
   bestTimeToVisit: '',
+  additionalField: '',
   images: [] as File[],
 };
 
@@ -50,7 +52,9 @@ const CreateLocation = () => {
     formData.append('itineraryTip', form.itineraryTip);
     formData.append('whatToPack', form.whatToPack);
     formData.append('photogenicForecastContent', form.photogenicForecastContent);
+    formData.append('photogenicForecastLink', form.photogenicForecastLink);
     formData.append('bestTimeToVisit', form.bestTimeToVisit);
+    formData.append('additionalField', form.additionalField);
 
     form.images.forEach((file) => {
       formData.append('photogenicImages', file);
@@ -132,18 +136,6 @@ const CreateLocation = () => {
 
               <Grid item xs={12}>
                 <Typography variant="subtitle2" gutterBottom>
-                  Best Time to Visit
-                </Typography>
-                <ReactQuill
-                  theme="snow"
-                  modules={modules}
-                  value={form.bestTimeToVisit}
-                  onChange={(value) => setForm((prev) => ({ ...prev, bestTimeToVisit: value }))}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <Typography variant="subtitle2" gutterBottom>
                   Photogenic Forecast
                 </Typography>
                 <ReactQuill
@@ -153,6 +145,16 @@ const CreateLocation = () => {
                   onChange={(value) =>
                     setForm((prev) => ({ ...prev, photogenicForecastContent: value }))
                   }
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  name="photogenicForecastLink"
+                  label="Photogenic Forecast Image Link"
+                  value={form.photogenicForecastLink}
+                  onChange={handleInputChange}
+                  fullWidth
                 />
               </Grid>
 
@@ -170,6 +172,25 @@ const CreateLocation = () => {
                     onChange={handleInputChange}
                   />
                 </Button>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Additional Field
+                </Typography>
+                <TextField
+                  name="additionalField"
+                  label="Additional Field Name"
+                  value={form.additionalField}
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+                <ReactQuill
+                  theme="snow"
+                  modules={modules}
+                  value={form.bestTimeToVisit}
+                  onChange={(value) => setForm((prev) => ({ ...prev, bestTimeToVisit: value }))}
+                />
               </Grid>
 
               {error && (

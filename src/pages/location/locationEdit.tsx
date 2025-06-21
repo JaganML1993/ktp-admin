@@ -12,7 +12,9 @@ const defaultState = {
   itineraryTip: '',
   whatToPack: '',
   photogenicForecastContent: '',
+  photogenicForecastLink: '',
   bestTimeToVisit: '',
+  additionalField: '',
   images: [] as File[],
   existingImages: [] as string[],
 };
@@ -48,7 +50,9 @@ const EditLocation = () => {
           itineraryTip: he.decode(data.itineraryTip || ''),
           whatToPack: he.decode(data.whatToPack || ''),
           photogenicForecastContent: he.decode(data.photogenicForecastContent || ''),
+          photogenicForecastLink: he.decode(data.photogenicForecastLink || ''),
           bestTimeToVisit: he.decode(data.bestTimeToVisit || ''),
+          additionalField: he.decode(data.additionalField || ''),
           existingImages: data.photogenicForecastImages || [],
         }));
       })
@@ -83,7 +87,9 @@ const EditLocation = () => {
     formData.append('itineraryTip', form.itineraryTip);
     formData.append('whatToPack', form.whatToPack);
     formData.append('photogenicForecastContent', form.photogenicForecastContent);
+    formData.append('photogenicForecastLink', form.photogenicForecastLink);
     formData.append('bestTimeToVisit', form.bestTimeToVisit);
+    formData.append('additionalField', form.additionalField);
 
     form.images.forEach((file) => {
       formData.append('photogenicImages', file);
@@ -172,18 +178,6 @@ const EditLocation = () => {
 
               <Grid item xs={12}>
                 <Typography variant="subtitle2" gutterBottom>
-                  Best Time to Visit
-                </Typography>
-                <ReactQuill
-                  theme="snow"
-                  modules={modules}
-                  value={form.bestTimeToVisit}
-                  onChange={handleRichTextChange('bestTimeToVisit')}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <Typography variant="subtitle2" gutterBottom>
                   Photogenic Forecast
                 </Typography>
                 <ReactQuill
@@ -191,6 +185,16 @@ const EditLocation = () => {
                   modules={modules}
                   value={form.photogenicForecastContent}
                   onChange={handleRichTextChange('photogenicForecastContent')}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  name="photogenicForecastLink"
+                  label="Photogenic Forecast Image Link"
+                  value={form.photogenicForecastLink}
+                  onChange={handleInputChange}
+                  fullWidth
                 />
               </Grid>
 
@@ -241,6 +245,25 @@ const EditLocation = () => {
                   </Stack>
                 </Grid>
               )}
+
+              <Grid item xs={12}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Additional Field
+                </Typography>
+                <TextField
+                  name="additionalField"
+                  label="Additional Field Name"
+                  value={form.additionalField}
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+                <ReactQuill
+                  theme="snow"
+                  modules={modules}
+                  value={form.bestTimeToVisit}
+                  onChange={handleRichTextChange('bestTimeToVisit')}
+                />
+              </Grid>
 
               {error && (
                 <Grid item xs={12}>
