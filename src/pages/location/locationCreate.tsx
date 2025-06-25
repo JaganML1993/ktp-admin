@@ -14,6 +14,7 @@ const defaultState = {
   photogenicForecastLink: '',
   bestTimeToVisit: '',
   additionalField: '',
+  dangerAlert: '',
   images: [] as File[],
 };
 
@@ -55,6 +56,7 @@ const CreateLocation = () => {
     formData.append('photogenicForecastLink', form.photogenicForecastLink);
     formData.append('bestTimeToVisit', form.bestTimeToVisit);
     formData.append('additionalField', form.additionalField);
+    formData.append('dangerAlert', form.dangerAlert);
 
     form.images.forEach((file) => {
       formData.append('photogenicImages', file);
@@ -117,6 +119,18 @@ const CreateLocation = () => {
                   onChange={handleInputChange}
                   required
                   fullWidth
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Danger Alert
+                </Typography>
+                <ReactQuill
+                  theme="snow"
+                  modules={modules}
+                  value={form.dangerAlert}
+                  onChange={(value) => setForm((prev) => ({ ...prev, dangerAlert: value }))}
                 />
               </Grid>
 

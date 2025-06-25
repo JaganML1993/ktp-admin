@@ -15,6 +15,7 @@ const defaultState = {
   photogenicForecastLink: '',
   bestTimeToVisit: '',
   additionalField: '',
+  dangerAlert: '',
   images: [] as File[],
   existingImages: [] as string[],
 };
@@ -53,6 +54,7 @@ const EditLocation = () => {
           photogenicForecastLink: he.decode(data.photogenicForecastLink || ''),
           bestTimeToVisit: he.decode(data.bestTimeToVisit || ''),
           additionalField: he.decode(data.additionalField || ''),
+          dangerAlert: he.decode(data.dangerAlert || ''),
           existingImages: data.photogenicForecastImages || [],
         }));
       })
@@ -90,6 +92,7 @@ const EditLocation = () => {
     formData.append('photogenicForecastLink', form.photogenicForecastLink);
     formData.append('bestTimeToVisit', form.bestTimeToVisit);
     formData.append('additionalField', form.additionalField);
+    formData.append('dangerAlert', form.dangerAlert);
 
     form.images.forEach((file) => {
       formData.append('photogenicImages', file);
@@ -161,6 +164,18 @@ const EditLocation = () => {
                   onChange={handleInputChange}
                   required
                   fullWidth
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Danger Alert
+                </Typography>
+                <ReactQuill
+                  theme="snow"
+                  modules={modules}
+                  value={form.dangerAlert}
+                  onChange={handleRichTextChange('dangerAlert')}
                 />
               </Grid>
 
